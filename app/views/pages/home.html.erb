@@ -1,0 +1,11 @@
+<h1>Pages#home</h1>
+<p>Find me in app/views/pages/Home.html.erb</p>
+<% if user_signed_in?%>
+  <p>Logueado como</p>
+  <%= current_user.email %>
+  <%= link_to "Logout",  destroy_user_session_path, data: {turbo_method: :delete}%>
+<% else %>
+  <p>No estás logueado/registrado</p>
+  <%= link_to "Ingresa", new_user_session_path%>
+  <%= link_to "Crea tu cuenta", new_user_registration_path %>
+<% end %>
